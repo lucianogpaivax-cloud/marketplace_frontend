@@ -1,0 +1,5 @@
+<h2>Dashboard - {{ userRole | titlecase }}</h2>
+<nav>
+  <a *ngFor="let item of menuItems" [routerLink]="item.link">{{ item.label }}</a>
+</nav>
+<router-outlet></router-outlet>
