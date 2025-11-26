@@ -1,0 +1,22 @@
+<mat-card>
+  <h2>Editar Cliente</h2>
+
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Nome</mat-label>
+    <input matInput [(ngModel)]="customer.name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="customer.email">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Status</mat-label>
+    <input matInput [(ngModel)]="customer.status">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="save()">
+    Salvar
+  </button>
+</mat-card>

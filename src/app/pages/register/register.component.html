@@ -17,6 +17,15 @@
     </mat-form-field>
 
     <mat-form-field appearance="fill">
+      <mat-label>Confirmar Senha</mat-label>
+      <input matInput type="password" [(ngModel)]="passwordConfirmation" name="passwordConfirmation" required>
+    </mat-form-field>
+
+    <mat-error *ngIf="password && passwordConfirmation && password !== passwordConfirmation">
+      As senhas não conferem.
+    </mat-error>
+
+    <mat-form-field appearance="fill">
       <mat-label>Tipo de usuário</mat-label>
       <mat-select [(ngModel)]="role" name="role">
         <mat-option value="cliente">Cliente</mat-option>
@@ -36,6 +45,11 @@
           <mat-option value="nacional">Nacional</mat-option>
           <mat-option value="internacional">Internacional</mat-option>
         </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Nome da loja</mat-label>
+        <input matInput type="text" [(ngModel)]="nomeLoja" name="nomeLoja" required>
       </mat-form-field>
     </div>
 

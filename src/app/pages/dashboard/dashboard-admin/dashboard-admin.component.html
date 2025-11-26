@@ -1,0 +1,38 @@
+<div class="dashboard-container">
+
+  <h1>Painel do Administrador</h1>
+
+  <div class="cards-grid">
+
+    <!-- Card: Listar Vendedores -->
+    <mat-card class="dashboard-card" routerLink="/admin/sellers">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>storefront</mat-icon>
+        <mat-card-title>Vendedores</mat-card-title>
+        <mat-card-subtitle>Gerenciar vendedores cadastrados</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Veja, edite ou remova vendedores da plataforma.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">Listar Vendedores</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- Card: Listar Clientes -->
+    <mat-card class="dashboard-card" routerLink="/admin/customers">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>people</mat-icon>
+        <mat-card-title>Clientes</mat-card-title>
+        <mat-card-subtitle>Gerenciar clientes cadastrados</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Acesse a lista completa de clientes registrados.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="accent">Listar Clientes</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+</div>

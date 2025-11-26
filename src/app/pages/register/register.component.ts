@@ -29,9 +29,11 @@ export class RegisterComponent {
   name = '';
   email = '';
   password = '';
+  passwordConfirmation: string = '';
   role: 'cliente' | 'vendedor' = 'cliente';
   tipoLoja = '';
   nacionalidade: 'nacional' | 'internacional' = 'nacional';
+  nomeLoja: string = '';
   error = '';
   success = '';
 
@@ -40,10 +42,11 @@ export class RegisterComponent {
   register() {
     this.error = '';
     this.success = '';
-    const payload: any = { name: this.name, email: this.email, password: this.password, role: this.role };
+    const payload: any = { name: this.name, email: this.email, password: this.password, password_confirmation: this.passwordConfirmation, role: this.role };
     if (this.role === 'vendedor') {
       payload.tipoLoja = this.tipoLoja;
       payload.nacionalidade = this.nacionalidade;
+      payload.nomeLoja = this.nomeLoja;
     }
     this.http.post<any>('http://localhost:8000/api/register', payload)
       .subscribe({
@@ -51,7 +54,26 @@ export class RegisterComponent {
           this.success = 'Cadastro realizado com sucesso!';
           this.router.navigate(['/login']);
         },
-        error: () => this.error = 'Erro ao cadastrar. Verifique os dados.'
-      });
+        // chamado sempre que o servidor retornar um código de erro HTTP 
+        error: (e) => {
+        console.log('Erro completo:', e); // útil para debugar no console
+
+        if (e.status === 422 && e.error) {
+          // Pega mensagens específicas de validação (Laravel)
+          if (e.error.errors) {
+            const mensagens = Object.values(e.error.errors).flat();
+            this.error = mensagens.join('\n');
+          } else if (e.error.message) {
+            this.error = e.error.message;
+          } else {
+            this.error = 'Erro de validação. Verifique os dados.';
+          }
+        } else if (e.status === 500) {
+          this.error = 'Erro interno no servidor. Tente novamente mais tarde.';
+        } else {
+          this.error = 'Erro ao cadastrar. Tente novamente.';
+        }
+      }
+    });
   }
 }
