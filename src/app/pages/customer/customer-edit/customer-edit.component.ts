@@ -28,7 +28,9 @@ export class CustomerEditComponent implements OnInit {
     id: '',
     name: '',
     email: '',
-    status: ''
+    status: '',
+    cpf: '',
+    endereco: '',
   };
 
   id!: number;
@@ -59,8 +61,11 @@ export class CustomerEditComponent implements OnInit {
         this.customer = {
           name: data.user?.name,
           email: data.user?.email,
-          status: data.user?.role
+          status: data.user?.role,
+          cpf: data.cpf,
+          endereco: data.endereco
         };
+        console.log(this.customer)
       });
   }
 

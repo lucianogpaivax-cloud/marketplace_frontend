@@ -37,7 +37,7 @@ export const routes: Routes = [
   {
   path: 'admin/customers/edit/:id',
   loadComponent: () =>
-    import('./pages/admin/customer-edit/customer-edit.component')
+    import('./pages/customer/customer-edit/customer-edit.component')
       .then(m => m.CustomerEditComponent)
   }
 ];

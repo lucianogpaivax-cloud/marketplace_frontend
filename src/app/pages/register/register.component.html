@@ -33,6 +33,20 @@
       </mat-select>
     </mat-form-field>
 
+    <!-- CAMPOS EXTRAS SE CLIENTE -->
+    <div *ngIf="role === 'cliente'">
+      <mat-form-field appearance="fill">
+        <mat-label>CPF</mat-label>
+        <input matInput type="text" [(ngModel)]="cpf" name="cpf" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Endereço</mat-label>
+        <input matInput type="text" [(ngModel)]="endereco" name="endereco" required>
+      </mat-form-field>
+    </div>
+    
+    <!-- CAMPOS EXTRAS SE VENDEDOR -->
     <div *ngIf="role === 'vendedor'">
       <mat-form-field appearance="fill">
         <mat-label>Tipo de loja</mat-label>
@@ -54,6 +68,7 @@
     </div>
 
     <button mat-raised-button color="primary" type="submit">Cadastrar</button>
+
     <p style="color:green;" *ngIf="success">{{ success }}</p>
     <p style="color:red;" *ngIf="error">{{ error }}</p>
   </form>

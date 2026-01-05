@@ -16,6 +16,16 @@
     <input matInput [(ngModel)]="customer.status">
   </mat-form-field>
 
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>CPF</mat-label>
+    <input matInput [(ngModel)]="customer.cpf">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="w-100">
+    <mat-label>Endereço</mat-label>
+    <input matInput [(ngModel)]="customer.endereco">
+  </mat-form-field>
+
   <button mat-raised-button color="primary" (click)="save()">
     Salvar
   </button>
