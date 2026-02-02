@@ -60,7 +60,7 @@ export class CustomerListComponent implements OnInit {
         },
 
         error: () => {
-          this.error = 'Erro ao carregar clientes.';
+          this.error = 'Erro ao carregar customers.';
           this.loading = false;
         },
       });

@@ -30,7 +30,7 @@ export class RegisterComponent {
   email = '';
   password = '';
   passwordConfirmation: string = '';
-  role: 'cliente' | 'vendedor' = 'cliente';
+  role: 'customer' | 'seller' = 'customer';
   cpf: string = '';
   endereco: string = '';
   tipoLoja = '';
@@ -46,14 +46,14 @@ export class RegisterComponent {
     this.success = '';
     const payload: any = { name: this.name, email: this.email, password: this.password, password_confirmation: this.passwordConfirmation, role: this.role };
 
-    // Campos cliente
-    if (this.role === 'cliente') {
+    // Campos customer
+    if (this.role === 'customer') {
       payload.endereco = this.endereco;
       payload.cpf = this.cpf;
     }
     
-    // Campos vendedor
-    if (this.role === 'vendedor') {
+    // Campos seller
+    if (this.role === 'seller') {
       payload.tipoLoja = this.tipoLoja;
       payload.nacionalidade = this.nacionalidade;
       payload.nomeLoja = this.nomeLoja;

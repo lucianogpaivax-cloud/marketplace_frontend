@@ -7,46 +7,60 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'http://127.0.0.1:8000/'; // URL do Laravel
+  private apiUrl = 'http://127.0.0.1:8000';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  // Registro de usuário
   register(data: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, data);
   }
 
-  // Login
   login(data: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, data);
   }
 
-  // Logout
   logout(): Observable<any> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const headers = this.getAuthHeaders();
     return this.http.post(`${this.apiUrl}/logout`, {}, { headers });
   }
 
-  // Obter dados do usuário logado
   me(): Observable<any> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const headers = this.getAuthHeaders();
     return this.http.get(`${this.apiUrl}/me`, { headers });
   }
 
-  // Salvar token no localStorage
+  // =====================
+  // 🔐 TOKEN
+  // =====================
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
 
-  // Recuperar token
   getToken(): string | null {
     return localStorage.getItem('token');
   }
 
-  // Verificar se está logado
+  // =====================
+  // 👤 USER
+  // =====================
+  setUser(user: any) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  getUser() {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
+
+  // =====================
   isLoggedIn(): boolean {
     return !!this.getToken();
+  }
+
+  private getAuthHeaders() {
+    const token = this.getToken();
+    return new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
   }
 }

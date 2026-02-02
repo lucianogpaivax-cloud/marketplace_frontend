@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+/* import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../../material.module';
 import { CommonModule } from '@angular/common';
@@ -10,15 +10,15 @@ import { CommonModule } from '@angular/common';
   imports: [RouterModule, MaterialModule, CommonModule]
 })
 export class DashboardComponent {
-  userRole: 'cliente' | 'vendedor' = 'cliente';
+  userRole: 'customer' | 'seller' = 'customer';
 
   get menuItems() {
-    if (this.userRole === 'cliente') {
+    if (this.userRole === 'customer') {
       return [
         { label: 'Produtos', link: 'produtos' },
         { label: 'Pedidos', link: 'pedidos' }
       ];
-    } else if (this.userRole === 'vendedor') {
+    } else if (this.userRole === 'seller') {
       return [
         { label: 'Meus Produtos', link: 'produtos' },
         { label: 'Meus Pedidos', link: 'pedidos' }
@@ -26,4 +26,4 @@ export class DashboardComponent {
     }
     return [];
   }
-}
+} */

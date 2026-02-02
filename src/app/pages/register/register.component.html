@@ -28,13 +28,13 @@
     <mat-form-field appearance="fill">
       <mat-label>Tipo de usuário</mat-label>
       <mat-select [(ngModel)]="role" name="role">
-        <mat-option value="cliente">Cliente</mat-option>
-        <mat-option value="vendedor">Vendedor</mat-option>
+        <mat-option value="customer">Cliente</mat-option>
+        <mat-option value="seller">Vendedor</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <!-- CAMPOS EXTRAS SE CLIENTE -->
-    <div *ngIf="role === 'cliente'">
+    <!-- CAMPOS EXTRAS SE customer -->
+    <div *ngIf="role === 'customer'">
       <mat-form-field appearance="fill">
         <mat-label>CPF</mat-label>
         <input matInput type="text" [(ngModel)]="cpf" name="cpf" required>
@@ -46,8 +46,8 @@
       </mat-form-field>
     </div>
     
-    <!-- CAMPOS EXTRAS SE VENDEDOR -->
-    <div *ngIf="role === 'vendedor'">
+    <!-- CAMPOS EXTRAS SE seller -->
+    <div *ngIf="role === 'seller'">
       <mat-form-field appearance="fill">
         <mat-label>Tipo de loja</mat-label>
         <input matInput type="text" [(ngModel)]="tipoLoja" name="tipoLoja" required>

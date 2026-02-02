@@ -18,7 +18,7 @@ import { HttpClient } from '@angular/common/http';
   ],
 })
 export class SellerListComponent implements OnInit {
-  vendedores: any[] = [];
+  seller: any[] = [];
   dataSource: any[] = [];   // <-- ADICIONADO
   loading = true;
   error = '';
@@ -43,19 +43,19 @@ export class SellerListComponent implements OnInit {
       .get('http://localhost:8000/api/admin/sellers', { headers })
       .subscribe({
         next: (data: any) => {
-          this.vendedores = data;
+          this.seller = data;
           this.dataSource = data;   // <-- ADICIONADO (necessário para o mat-table)
           this.loading = false;
         },
         error: () => {
-          this.error = 'Erro ao carregar vendedores.';
+          this.error = 'Erro ao carregar seller.';
           this.loading = false;
         },
       });
   }
   
   deleteSeller(id_seller: number) {
-  if (!confirm("Tem certeza que deseja excluir este vendedor?")) return;
+  if (!confirm("Tem certeza que deseja excluir este seller?")) return;
 
   const token =
     typeof window !== 'undefined'
@@ -69,12 +69,43 @@ export class SellerListComponent implements OnInit {
     .subscribe({
       next: () => {
         this.dataSource = this.dataSource.filter(s => s.id_seller !== id_seller);
-        alert("Vendedor excluído com sucesso!");
+        alert("seller excluído com sucesso!");
       },
       error: () => {
-        alert("Erro ao excluir vendedor.");
+        alert("Erro ao excluir seller.");
       }
     });
   }
+
+  updateSeller(id_seller: number, sellerData: any) {
+  if (!confirm("Tem certeza que deseja atualizar este seller?")) return;
+
+  const token =
+    typeof window !== 'undefined'
+      ? localStorage.getItem('token')
+      : null;
+
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'application/json'
+  };
+
+  this.http
+    .put(`http://localhost:8000/api/admin/sellers/${id_seller}`, sellerData, { headers })
+    .subscribe({
+      next: () => {
+        // Atualiza o seller na lista local
+        this.dataSource = this.dataSource.map(s =>
+          s.id_seller === id_seller ? { ...s, ...sellerData } : s
+        );
+
+        alert("seller atualizado com sucesso!");
+      },
+      error: () => {
+        alert("Erro ao atualizar seller.");
+      }
+    });
+}
+
 }
 

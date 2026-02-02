@@ -80,14 +80,14 @@ export class CustomerEditComponent implements OnInit {
     )
     .subscribe({
       next: () => {
-        alert("Cliente atualizado!");
+        alert("customer atualizado!");
 
-        // Redirecionar para lista de clientes
+        // Redirecionar para lista de customers
         this.router.navigate(['/admin/customers']);
       },
       error: (err) => {
         console.error(err);
-        alert("Erro ao atualizar o cliente!");
+        alert("Erro ao atualizar o customer!");
       }
     });
   }

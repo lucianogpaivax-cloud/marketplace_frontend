@@ -1,0 +1,31 @@
+<mat-card>
+  <h2>Editar meus dados</h2>
+
+  <form (ngSubmit)="updateCustomer()">
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="customer.name" name="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="customer.email" name="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>CPF</mat-label>
+      <input matInput [(ngModel)]="customer.cpf" name="cpf">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Endereço</mat-label>
+      <input matInput [(ngModel)]="customer.endereco" name="endereco">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">
+      Salvar alterações
+    </button>
+
+  </form>
+</mat-card>

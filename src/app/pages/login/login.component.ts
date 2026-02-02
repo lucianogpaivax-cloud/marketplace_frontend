@@ -54,15 +54,8 @@ export class LoginComponent {
         localStorage.setItem('token', res.token);
         localStorage.setItem('user', JSON.stringify(res.user));
 
-        const role = res.user.role;
-
-        if (role === 'admin') {
-          this.router.navigate(['/dashboard-admin']);
-        } else if (role === 'vendedor') {
-          this.router.navigate(['/dashboard-seller']);
-        } else {
-          this.router.navigate(['/dashboard']);
-        }
+        // ✅ ÚNICA ALTERAÇÃO NECESSÁRIA
+        this.router.navigate([res.redirect]);
       },
       error: (e) => {
         console.error("❌ Erro no login:", e);

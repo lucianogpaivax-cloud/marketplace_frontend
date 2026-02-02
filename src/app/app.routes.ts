@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+/* import { DashboardComponent } from './pages/dashboard/dashboard.component'; */
 import { DashboardAdminComponent } from './pages/dashboard/dashboard-admin/dashboard-admin.component';
+import { CreateProductComponent } from './create-product/create-product.component';
+import { SellerGuard } from './guards/seller.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -10,10 +12,10 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
-  {
+  /* {
     path: 'dashboard',
     component: DashboardComponent
-  },
+  }, */
 
   {
     path: 'dashboard-admin',
@@ -39,5 +41,39 @@ export const routes: Routes = [
   loadComponent: () =>
     import('./pages/customer/customer-edit/customer-edit.component')
       .then(m => m.CustomerEditComponent)
+  },
+
+  {
+  path: 'dashboard-customer',
+  loadComponent: () =>
+    import('./pages/customer/dashboard-customer/dashboard-customer.component')
+      .then(m => m.DashboardCustomerComponent)
+  },
+  
+  {
+  path: 'customer/edit',
+  loadComponent: () =>
+    import('./pages/customer/dashboard-customer/customer-selfedit/customer-selfedit.component')
+      .then(m => m.CustomerSelfeditComponent)
+  },
+
+  {
+  path: 'dashboard-seller',
+  loadComponent: () =>
+    import('./pages/seller/dashboard-seller/dashboard-seller.component')
+      .then(m => m.DashboardSellerComponent)
+  },
+
+  {
+  path: 'seller/edit',
+  loadComponent: () =>
+    import('./pages/seller/seller-selfedit/seller-selfedit.component')
+      .then(m => m.SellerSelfeditComponent)
+  },
+
+  {
+    path: 'seller/products/create',
+    component: CreateProductComponent,
+    canActivate: [SellerGuard]
   }
 ];

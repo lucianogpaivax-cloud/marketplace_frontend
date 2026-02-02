@@ -1,0 +1,47 @@
+<mat-card>
+  <h2>Editar meus dados (seller)</h2>
+
+  <form (ngSubmit)="updateSeller()">
+
+    <div *ngIf="seller">
+
+    <!-- Dados do usuário -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nome</mat-label>
+      <input matInput [(ngModel)]="user.name" name="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="user.email" name="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Telefone</mat-label>
+      <input matInput [(ngModel)]="user.telefone" name="telefone">
+    </mat-form-field>
+
+    <!-- Dados da loja -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nome da Loja</mat-label>
+      <input matInput [(ngModel)]="seller.nome_loja" name="nome_loja">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Tipo da Loja</mat-label>
+      <input matInput [(ngModel)]="seller.tipo_loja" name="tipo_loja">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Origem</mat-label>
+      <input matInput [(ngModel)]="seller.origem" name="origem">
+    </mat-form-field>
+
+    </div>
+
+    <button mat-raised-button color="primary">
+      Salvar alterações
+    </button>
+
+  </form>
+</mat-card>
