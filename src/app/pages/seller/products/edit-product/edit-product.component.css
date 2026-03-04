@@ -36,6 +36,11 @@
   width: 100%;
 }
 
+/* Campo descrição ocupa linha inteira */
+.description-field {
+  grid-column: 1 / -1;
+}
+
 /* Outline roxo */
 ::ng-deep .mdc-notched-outline__leading,
 ::ng-deep .mdc-notched-outline__notch,
@@ -47,12 +52,13 @@
   color: #673ab7 !important;
 }
 
-/* Botão alinhado à direita */
+/* Botões alinhados à direita */
 .button-container {
   grid-column: 1 / 2;
   display: flex;
   justify-content: flex-end;
-  margin-top: 10px;
+  gap: 15px;
+  margin-top: 15px;
 }
 
 button {

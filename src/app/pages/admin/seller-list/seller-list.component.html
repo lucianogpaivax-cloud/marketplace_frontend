@@ -1,70 +1,88 @@
-<mat-card>
-  <h2>Lista de seller</h2>
+<div class="list-wrapper">
 
-  <div *ngIf="loading" class="loading-container">
-    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  <div class="list-container">
+
+    <h1 class="page-title">Lista de Sellers</h1>
+
+    <mat-card class="table-card">
+
+      <div *ngIf="loading" class="loading-container">
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+      </div>
+
+      <div *ngIf="error" class="error">
+        {{ error }}
+      </div>
+
+      <div class="table-wrapper" *ngIf="!loading && !error">
+
+        <table mat-table [dataSource]="dataSource" class="custom-table">
+
+          <!-- ID -->
+          <ng-container matColumnDef="id_seller">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let seller">
+              {{ seller.id_seller }}
+            </td>
+          </ng-container>
+
+          <!-- Nome Loja -->
+          <ng-container matColumnDef="nome_loja">
+            <th mat-header-cell *matHeaderCellDef>Nome da Loja</th>
+            <td mat-cell *matCellDef="let seller">
+              {{ seller.nome_loja }}
+            </td>
+          </ng-container>
+
+          <!-- Tipo -->
+          <ng-container matColumnDef="tipo_loja">
+            <th mat-header-cell *matHeaderCellDef>Tipo</th>
+            <td mat-cell *matCellDef="let seller">
+              {{ seller.tipo_loja || '—' }}
+            </td>
+          </ng-container>
+
+          <!-- Origem -->
+          <ng-container matColumnDef="origem">
+            <th mat-header-cell *matHeaderCellDef>Origem</th>
+            <td mat-cell *matCellDef="let seller">
+              <span class="badge">
+                {{ seller.origem }}
+              </span>
+            </td>
+          </ng-container>
+
+          <!-- Ações -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Ações</th>
+            <td mat-cell *matCellDef="let seller" class="actions-cell">
+
+              <button
+                mat-stroked-button
+                color="primary"
+                (click)="updateSeller(seller.id_seller, seller)">
+                Editar
+              </button>
+
+              <button
+                mat-flat-button
+                color="warn"
+                (click)="deleteSeller(seller.id_seller)">
+                Excluir
+              </button>
+
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+      </div>
+
+    </mat-card>
+
   </div>
 
-  <div *ngIf="error" class="error">{{ error }}</div>
-
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-    <!-- ID Seller -->
-    <ng-container matColumnDef="id_seller">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let seller">
-        {{ seller.id_seller }}
-      </td>
-    </ng-container>
-
-    <!-- Nome da Loja -->
-    <ng-container matColumnDef="nome_loja">
-      <th mat-header-cell *matHeaderCellDef> Nome da Loja </th>
-      <td mat-cell *matCellDef="let seller">
-        {{ seller.nome_loja }}
-      </td>
-    </ng-container>
-
-    <!-- Tipo da Loja -->
-    <ng-container matColumnDef="tipo_loja">
-      <th mat-header-cell *matHeaderCellDef> Tipo </th>
-      <td mat-cell *matCellDef="let seller">
-        {{ seller.tipo_loja || '—' }}
-      </td>
-    </ng-container>
-
-    <!-- Origem -->
-    <ng-container matColumnDef="origem">
-      <th mat-header-cell *matHeaderCellDef> Origem </th>
-      <td mat-cell *matCellDef="let seller">
-        {{ seller.origem }}
-      </td>
-    </ng-container>
-
-    <!-- Ações -->
-    <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Ações </th>
-      <td mat-cell *matCellDef="let seller">
-        <button
-          mat-button
-          color="primary"
-          (click)="updateSeller(seller.id_seller, seller)"
-        >
-          Editar
-        </button>
-
-        <button
-          mat-button
-          color="warn"
-          (click)="deleteSeller(seller.id_seller)"
-        >
-          Excluir
-        </button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-  </table>
-</mat-card>
+</div>

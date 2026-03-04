@@ -1,31 +1,39 @@
-<mat-card>
-  <h2>Editar meus dados</h2>
+<div class="edit-wrapper">
 
-  <form (ngSubmit)="updateCustomer()">
+  <mat-card class="edit-card">
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Nome</mat-label>
-      <input matInput [(ngModel)]="customer.name" name="name">
-    </mat-form-field>
+    <h2 class="title">Editar meus dados</h2>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Email</mat-label>
-      <input matInput [(ngModel)]="customer.email" name="email">
-    </mat-form-field>
+    <form (ngSubmit)="updateCustomer()" class="form-grid">
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>CPF</mat-label>
-      <input matInput [(ngModel)]="customer.cpf" name="cpf">
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="customer.name" name="name">
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Endereço</mat-label>
-      <input matInput [(ngModel)]="customer.endereco" name="endereco">
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="customer.email" name="email">
+      </mat-form-field>
 
-    <button mat-raised-button color="primary">
-      Salvar alterações
-    </button>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>CPF</mat-label>
+        <input matInput [(ngModel)]="customer.cpf" name="cpf">
+      </mat-form-field>
 
-  </form>
-</mat-card>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Endereço</mat-label>
+        <input matInput [(ngModel)]="customer.endereco" name="endereco">
+      </mat-form-field>
+
+      <div class="button-container">
+        <button mat-flat-button color="primary" type="submit">
+          Salvar alterações
+        </button>
+      </div>
+
+    </form>
+
+  </mat-card>
+
+</div>

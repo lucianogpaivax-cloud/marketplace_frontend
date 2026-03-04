@@ -1,47 +1,55 @@
-<mat-card>
-  <h2>Editar meus dados (seller)</h2>
+<div class="edit-wrapper">
 
-  <form (ngSubmit)="updateSeller()">
+  <mat-card class="edit-card">
 
-    <div *ngIf="seller">
+    <h2 class="title">Editar meus dados (seller)</h2>
 
-    <!-- Dados do usuário -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Nome</mat-label>
-      <input matInput [(ngModel)]="user.name" name="name">
-    </mat-form-field>
+    <form (ngSubmit)="updateSeller()" class="form-grid">
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Email</mat-label>
-      <input matInput [(ngModel)]="user.email" name="email">
-    </mat-form-field>
+      <div *ngIf="seller">
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Telefone</mat-label>
-      <input matInput [(ngModel)]="user.telefone" name="telefone">
-    </mat-form-field>
+        <!-- Dados do usuário -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nome</mat-label>
+          <input matInput [(ngModel)]="user.name" name="name">
+        </mat-form-field>
 
-    <!-- Dados da loja -->
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Nome da Loja</mat-label>
-      <input matInput [(ngModel)]="seller.nome_loja" name="nome_loja">
-    </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="user.email" name="email">
+        </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Tipo da Loja</mat-label>
-      <input matInput [(ngModel)]="seller.tipo_loja" name="tipo_loja">
-    </mat-form-field>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Telefone</mat-label>
+          <input matInput [(ngModel)]="user.telefone" name="telefone">
+        </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Origem</mat-label>
-      <input matInput [(ngModel)]="seller.origem" name="origem">
-    </mat-form-field>
+        <!-- Dados da loja -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nome da Loja</mat-label>
+          <input matInput [(ngModel)]="seller.nome_loja" name="nome_loja">
+        </mat-form-field>
 
-    </div>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Tipo da Loja</mat-label>
+          <input matInput [(ngModel)]="seller.tipo_loja" name="tipo_loja">
+        </mat-form-field>
 
-    <button mat-raised-button color="primary">
-      Salvar alterações
-    </button>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Origem</mat-label>
+          <input matInput [(ngModel)]="seller.origem" name="origem">
+        </mat-form-field>
 
-  </form>
-</mat-card>
+      </div>
+
+      <div class="button-container">
+        <button mat-flat-button color="primary" type="submit">
+          Salvar alterações
+        </button>
+      </div>
+
+    </form>
+
+  </mat-card>
+
+</div>

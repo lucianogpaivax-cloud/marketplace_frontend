@@ -1,0 +1,66 @@
+/* Fundo geral */
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ede7f6, #d1c4e9);
+  padding: 40px 60px;
+}
+
+/* Título */
+.dashboard-container h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #673ab7;
+  margin-bottom: 30px;
+}
+
+/* Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+  gap: 25px;
+}
+
+/* Card */
+.dashboard-card {
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(103, 58, 183, 0.15);
+  transition: 0.3s ease;
+  padding-bottom: 10px;
+}
+
+/* Hover elegante */
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(103, 58, 183, 0.25);
+}
+
+/* Ícone */
+::ng-deep .mat-mdc-card-avatar {
+  background-color: #ede7f6;
+  color: #673ab7;
+}
+
+/* Título do card */
+::ng-deep .mat-mdc-card-title {
+  font-weight: 600;
+  color: #673ab7;
+}
+
+/* Subtítulo */
+::ng-deep .mat-mdc-card-subtitle {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Texto */
+.dashboard-card p {
+  font-size: 14px;
+  margin: 10px 0 15px;
+}
+
+/* Botão */
+.dashboard-card button {
+  border-radius: 8px;
+  font-weight: 500;
+}

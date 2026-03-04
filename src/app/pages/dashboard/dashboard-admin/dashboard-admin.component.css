@@ -1,0 +1,83 @@
+/* Fundo padrão do sistema */
+.admin-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ede7f6, #d1c4e9);
+  padding: 60px 20px;
+}
+
+/* Container central */
+.admin-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Título */
+.page-title {
+  color: #673ab7;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+/* Grid responsivo */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Card moderno */
+.dashboard-card {
+  padding: 30px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  box-shadow: 0 6px 18px rgba(103, 58, 183, 0.15);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(103, 58, 183, 0.25);
+}
+
+/* Ícone superior */
+.card-icon {
+  width: 50px;
+  height: 50px;
+  background: #ede7f6;
+  color: #673ab7;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.card-icon mat-icon {
+  font-size: 26px;
+}
+
+/* Títulos */
+.dashboard-card h2 {
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+
+.subtitle {
+  color: #673ab7;
+  font-size: 14px;
+  margin: 6px 0 10px 0;
+}
+
+.description {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* Botão */
+button {
+  border-radius: 8px;
+  font-weight: 500;
+}

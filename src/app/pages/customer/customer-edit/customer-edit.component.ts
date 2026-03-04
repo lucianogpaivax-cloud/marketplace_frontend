@@ -21,6 +21,7 @@ import { MatCardModule } from '@angular/material/card';
     MatCardModule
   ],
   templateUrl: './customer-edit.component.html',
+  styleUrls: ['./customer-edit.css']
 })
 export class CustomerEditComponent implements OnInit {
 

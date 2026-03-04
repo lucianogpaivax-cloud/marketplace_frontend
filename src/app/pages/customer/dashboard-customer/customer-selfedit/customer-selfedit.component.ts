@@ -19,7 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatButtonModule
   ],
-  templateUrl: './customer-selfedit.component.html'
+  templateUrl: './customer-selfedit.component.html',
+  styleUrls: ['./customer-selfedit.component.css']
 })
 export class CustomerSelfeditComponent implements OnInit {
 

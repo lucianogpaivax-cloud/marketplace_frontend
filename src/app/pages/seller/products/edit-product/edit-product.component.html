@@ -1,0 +1,76 @@
+<div class="edit-wrapper">
+
+  <mat-card class="edit-card">
+
+    <h2 class="title">Editar Produto</h2>
+
+    <form (ngSubmit)="updateProduct()" class="form-grid">
+
+      <div *ngIf="product">
+
+        <!-- Nome -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nome do Produto</mat-label>
+          <input matInput [(ngModel)]="product.nome" name="nome" required>
+        </mat-form-field>
+
+        <!-- Categoria -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>ID Categoria</mat-label>
+          <input matInput type="number"
+                 [(ngModel)]="product.id_category"
+                 name="id_category">
+        </mat-form-field>
+
+        <!-- Preço -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Preço</mat-label>
+          <input matInput type="number"
+                 [(ngModel)]="product.preco"
+                 name="preco"
+                 required>
+        </mat-form-field>
+
+        <!-- Status -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Status</mat-label>
+          <mat-select [(ngModel)]="product.status" name="status">
+            <mat-option value="ativo">Ativo</mat-option>
+            <mat-option value="inativo">Inativo</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Imagem -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>URL da Imagem</mat-label>
+          <input matInput [(ngModel)]="product.imagem" name="imagem">
+        </mat-form-field>
+
+        <!-- Descrição -->
+        <mat-form-field appearance="outline" class="full-width description-field">
+          <mat-label>Descrição</mat-label>
+          <textarea matInput rows="4"
+                    [(ngModel)]="product.descricao"
+                    name="descricao">
+          </textarea>
+        </mat-form-field>
+
+      </div>
+
+      <div class="button-container">
+
+        <button mat-flat-button color="primary" type="submit">
+          Salvar alterações
+        </button>
+
+        <button mat-stroked-button color="warn" type="button" (click)="cancel()">
+          Cancelar
+        </button>
+
+      </div>
+
+    </form>
+
+  </mat-card>
+
+</div>

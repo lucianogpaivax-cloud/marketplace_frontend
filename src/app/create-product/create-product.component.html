@@ -1,1 +1,121 @@
-<p>create-product works!</p>
+<mat-card class="create-product-card">
+
+  <mat-card-title>
+    Criar Produto
+  </mat-card-title>
+
+  <mat-card-content>
+    <form (ngSubmit)="submit()" #form="ngForm">
+
+      <!-- Nome -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nome do produto</mat-label>
+        <input
+          matInput
+          name="nome"
+          [(ngModel)]="product.nome"
+          required
+        />
+        <mat-error *ngIf="form.submitted && !product.nome">
+          Nome é obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Categoria -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Categoria</mat-label>
+        <mat-select
+          name="id_category"
+          [(ngModel)]="product.id_category"
+          required
+        >
+
+          <!-- CORREÇÃO AQUI: usando [value] -->
+          <mat-option [value]="1">Tênis</mat-option>
+          <mat-option [value]="2">Eletrônicos</mat-option>
+          <mat-option [value]="3">Roupas</mat-option>
+          <mat-option [value]="4">Casa & Decoração</mat-option>
+          
+          
+
+        </mat-select>
+        <mat-error *ngIf="form.submitted && !product.id_category">
+          Categoria é obrigatória
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Descrição -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descrição</mat-label>
+        <textarea
+          matInput
+          rows="4"
+          name="descricao"
+          [(ngModel)]="product.descricao"
+        ></textarea>
+      </mat-form-field>
+
+      <!-- Preço -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Preço</mat-label>
+        <input
+          matInput
+          type="number"
+          name="preco"
+          [(ngModel)]="product.preco"
+          required
+          min="0"
+        />
+        <mat-error *ngIf="form.submitted && !product.preco">
+          Preço é obrigatório
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Imagem -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Imagem (URL)</mat-label>
+        <input
+          matInput
+          name="imagem"
+          [(ngModel)]="product.imagem"
+          placeholder="https://..."
+        />
+      </mat-form-field>
+
+      <!-- Status -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Status</mat-label>
+        <mat-select
+          name="status"
+          [(ngModel)]="product.status"
+        >
+          <mat-option value="ativo">Ativo</mat-option>
+          <mat-option value="inativo">Inativo</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Botões -->
+      <div class="actions">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+        >
+          <mat-icon>save</mat-icon>
+          Criar Produto
+        </button>
+
+        <button
+          mat-button
+          type="button"
+          color="warn"
+          (click)="cancel()"
+        >
+          Cancelar
+        </button>
+      </div>
+
+    </form>
+  </mat-card-content>
+
+</mat-card>

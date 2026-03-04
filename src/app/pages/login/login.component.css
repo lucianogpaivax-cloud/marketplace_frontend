@@ -1,0 +1,100 @@
+/* Fundo da tela */
+.login-wrapper {
+  height: 100vh;
+  background: linear-gradient(135deg, #ede7f6, #d1c4e9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Card central */
+.login-card {
+  width: 360px;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(103, 58, 183, 0.2);
+}
+
+/* Título */
+.title {
+  color: #673ab7;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+/* Inputs */
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Deixa o outline roxo */
+::ng-deep .mat-mdc-form-field-outline {
+  color: #673ab7 !important;
+  border-color: #673ab7 !important;
+}
+
+/* Label roxa quando ativo */
+::ng-deep .mdc-floating-label--float-above {
+  color: #673ab7 !important;
+}
+
+/* Link esqueci senha */
+.forgot {
+  text-align: right;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.forgot a {
+  text-decoration: none;
+  color: #673ab7;
+  font-weight: 500;
+}
+
+.forgot a:hover {
+  text-decoration: underline;
+}
+
+/* Botão */
+.login-button {
+  width: 100%;
+  background-color: #673ab7 !important;
+  color: white !important;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.login-button:hover {
+  background-color: #5e35b1 !important;
+}
+
+/* Erro */
+.error {
+  margin-top: 15px;
+  color: #d32f2f;
+  font-size: 14px;
+}
+
+/* Usuário canto superior direito */
+.user-info {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #673ab7;
+  font-weight: 500;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #673ab7;
+}

@@ -1,0 +1,61 @@
+/* Fundo */
+.edit-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ede7f6, #d1c4e9);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+}
+
+/* Card */
+.edit-card {
+  width: 700px;
+  padding: 40px;
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(103, 58, 183, 0.15);
+}
+
+/* Título */
+.title {
+  color: #673ab7;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* Grid do formulário */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Inputs */
+.full-width {
+  width: 100%;
+}
+
+/* Outline roxo */
+::ng-deep .mdc-notched-outline__leading,
+::ng-deep .mdc-notched-outline__notch,
+::ng-deep .mdc-notched-outline__trailing {
+  border-color: #673ab7 !important;
+}
+
+::ng-deep .mdc-floating-label--float-above {
+  color: #673ab7 !important;
+}
+
+/* Botão */
+.button-container {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+button {
+  border-radius: 8px;
+  font-weight: 500;
+}

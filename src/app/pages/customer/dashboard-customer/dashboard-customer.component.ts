@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatIconModule
   ],
-  templateUrl: './dashboard-customer.component.html'
+  templateUrl: './dashboard-customer.component.html',
+  styleUrls: ['./dashboard-customer.component.css']
 })
 export class DashboardCustomerComponent {}

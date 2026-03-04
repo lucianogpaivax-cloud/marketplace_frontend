@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-dashboard-seller',
@@ -12,9 +13,11 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     RouterModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
-  templateUrl: './dashboard-seller.component.html'
+  templateUrl: './dashboard-seller.component.html',
+  styleUrls: ['./dashboard-seller.component.css']
 })
 export class DashboardSellerComponent implements OnInit {
 

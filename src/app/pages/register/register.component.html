@@ -1,76 +1,90 @@
-<mat-card>
-  <h2>Cadastro</h2>
-  <form (ngSubmit)="register()">
-    <mat-form-field appearance="fill">
-      <mat-label>Nome</mat-label>
-      <input matInput type="text" [(ngModel)]="name" name="name" required>
-    </mat-form-field>
+<div class="register-wrapper">
 
-    <mat-form-field appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput type="email" [(ngModel)]="email" name="email" required>
-    </mat-form-field>
+  <mat-card class="register-card">
+    <h2 class="title">Cadastro</h2>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Senha</mat-label>
-      <input matInput type="password" [(ngModel)]="password" name="password" required>
-    </mat-form-field>
+    <form (ngSubmit)="register()" class="form">
 
-    <mat-form-field appearance="fill">
-      <mat-label>Confirmar Senha</mat-label>
-      <input matInput type="password" [(ngModel)]="passwordConfirmation" name="passwordConfirmation" required>
-    </mat-form-field>
-
-    <mat-error *ngIf="password && passwordConfirmation && password !== passwordConfirmation">
-      As senhas não conferem.
-    </mat-error>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Tipo de usuário</mat-label>
-      <mat-select [(ngModel)]="role" name="role">
-        <mat-option value="customer">Cliente</mat-option>
-        <mat-option value="seller">Vendedor</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <!-- CAMPOS EXTRAS SE customer -->
-    <div *ngIf="role === 'customer'">
-      <mat-form-field appearance="fill">
-        <mat-label>CPF</mat-label>
-        <input matInput type="text" [(ngModel)]="cpf" name="cpf" required>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput type="text" [(ngModel)]="name" name="name" required>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Endereço</mat-label>
-        <input matInput type="text" [(ngModel)]="endereco" name="endereco" required>
-      </mat-form-field>
-    </div>
-    
-    <!-- CAMPOS EXTRAS SE seller -->
-    <div *ngIf="role === 'seller'">
-      <mat-form-field appearance="fill">
-        <mat-label>Tipo de loja</mat-label>
-        <input matInput type="text" [(ngModel)]="tipoLoja" name="tipoLoja" required>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="email" name="email" required>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Nacionalidade</mat-label>
-        <mat-select [(ngModel)]="nacionalidade" name="nacionalidade">
-          <mat-option value="nacional">Nacional</mat-option>
-          <mat-option value="internacional">Internacional</mat-option>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" [(ngModel)]="password" name="password" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Confirmar Senha</mat-label>
+        <input matInput type="password" [(ngModel)]="passwordConfirmation" name="passwordConfirmation" required>
+      </mat-form-field>
+
+      <div class="validation"
+        *ngIf="password && passwordConfirmation && password !== passwordConfirmation">
+        As senhas não conferem.
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tipo de usuário</mat-label>
+        <mat-select [(ngModel)]="role" name="role">
+          <mat-option value="customer">Cliente</mat-option>
+          <mat-option value="seller">Vendedor</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Nome da loja</mat-label>
-        <input matInput type="text" [(ngModel)]="nomeLoja" name="nomeLoja" required>
-      </mat-form-field>
-    </div>
+      <!-- CUSTOMER -->
+      <div *ngIf="role === 'customer'">
 
-    <button mat-raised-button color="primary" type="submit">Cadastrar</button>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>CPF</mat-label>
+          <input matInput type="text" [(ngModel)]="cpf" name="cpf" required>
+        </mat-form-field>
 
-    <p style="color:green;" *ngIf="success">{{ success }}</p>
-    <p style="color:red;" *ngIf="error">{{ error }}</p>
-  </form>
-</mat-card>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Endereço</mat-label>
+          <input matInput type="text" [(ngModel)]="endereco" name="endereco" required>
+        </mat-form-field>
+
+      </div>
+
+      <!-- SELLER -->
+      <div *ngIf="role === 'seller'">
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Tipo de loja</mat-label>
+          <input matInput type="text" [(ngModel)]="tipoLoja" name="tipoLoja" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nacionalidade</mat-label>
+          <mat-select [(ngModel)]="nacionalidade" name="nacionalidade">
+            <mat-option value="nacional">Nacional</mat-option>
+            <mat-option value="internacional">Internacional</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nome da loja</mat-label>
+          <input matInput type="text" [(ngModel)]="nomeLoja" name="nomeLoja" required>
+        </mat-form-field>
+
+      </div>
+
+      <button mat-flat-button color="primary" type="submit" class="register-button">
+        Cadastrar
+      </button>
+
+      <p class="success" *ngIf="success">{{ success }}</p>
+      <p class="error" *ngIf="error">{{ error }}</p>
+
+    </form>
+  </mat-card>
+</div>
+
 

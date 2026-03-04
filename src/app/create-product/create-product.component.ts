@@ -4,12 +4,27 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+
 @Component({
   selector: 'app-create-product',
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+
+    // Angular Material (MODULES!)
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule
   ],
   templateUrl: './create-product.component.html',
   styleUrl: './create-product.component.css'
@@ -17,12 +32,12 @@ import { ProductService } from '../services/product.service';
 export class CreateProductComponent {
 
   product = {
-    id_category: '',
-    nome: '',
-    descricao: '',
-    preco: null as number | null,
-    imagem: '',
-    status: 'ativo'
+    id_category: null as number | null,
+  nome: '',
+  descricao: '',
+  preco: null as number | null,
+  imagem: '',
+  status: 'ativo'
   };
 
   constructor(
@@ -38,13 +53,16 @@ export class CreateProductComponent {
       },
       error: (err) => {
         console.error(err);
-
-        if (err.status === 403) {
-          alert('Você não tem permissão para criar produtos.');
-        } else {
-          alert('Erro ao criar produto.');
-        }
+        alert(err.status === 403
+          ? 'Você não tem permissão para criar produtos.'
+          : 'Erro ao criar produto.'
+        );
       }
     });
   }
+
+  cancel() {
+    this.router.navigate(['/seller/products']);
+  }
 }
+

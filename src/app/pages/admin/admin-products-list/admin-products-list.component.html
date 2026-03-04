@@ -1,0 +1,96 @@
+<div class="list-wrapper">
+
+  <div class="list-container">
+
+    <h1 class="page-title">Lista de Produtos</h1>
+
+    <mat-card class="table-card">
+
+      <div *ngIf="loading" class="loading-container">
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+      </div>
+
+      <div *ngIf="error" class="error">
+        {{ error }}
+      </div>
+
+      <div class="table-wrapper" *ngIf="!loading && !error">
+
+        <table mat-table [dataSource]="dataSource" class="custom-table">
+
+          <!-- ID -->
+          <ng-container matColumnDef="id_product">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let product">
+              {{ product.id_product }}
+            </td>
+          </ng-container>
+
+          <!-- Nome -->
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef>Nome</th>
+            <td mat-cell *matCellDef="let product">
+              {{ product.nome }}
+            </td>
+          </ng-container>
+
+          <!-- Preço -->
+          <ng-container matColumnDef="preco">
+            <th mat-header-cell *matHeaderCellDef>Preço</th>
+            <td mat-cell *matCellDef="let product">
+              R$ {{ product.preco }}
+            </td>
+          </ng-container>
+
+          <!-- Status -->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let product">
+              <span class="badge">
+                {{ product.status }}
+              </span>
+            </td>
+          </ng-container>
+
+          <!-- Seller -->
+          <ng-container matColumnDef="seller">
+            <th mat-header-cell *matHeaderCellDef>Seller</th>
+            <td mat-cell *matCellDef="let product">
+              {{ product.seller?.nome_loja || '—' }}
+            </td>
+          </ng-container>
+
+          <!-- Ações -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Ações</th>
+            <td mat-cell *matCellDef="let product" class="actions-cell">
+
+            <button
+            mat-flat-button
+            color="primary"
+            [routerLink]="['/admin/products/edit', product.id_product]">
+            Editar
+            </button>
+
+              <button
+                mat-flat-button
+                color="warn"
+                (click)="deleteProduct(product.id_product)">
+                Excluir
+              </button>
+
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+      </div>
+
+    </mat-card>
+
+  </div>
+
+</div>

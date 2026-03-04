@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   // =====================
-  // 🔐 TOKEN
+  // TOKEN
   // =====================
   setToken(token: string) {
     localStorage.setItem('token', token);
@@ -41,7 +41,7 @@ export class AuthService {
   }
 
   // =====================
-  // 👤 USER
+  // USER
   // =====================
   setUser(user: any) {
     localStorage.setItem('user', JSON.stringify(user));
@@ -50,6 +50,11 @@ export class AuthService {
   getUser() {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
+  }
+
+  getRole(): string | null {
+  const user = this.getUser();
+  return user ? user.role : null;
   }
 
   // =====================
@@ -63,4 +68,6 @@ export class AuthService {
       Authorization: `Bearer ${token}`
     });
   }
+
+  
 }

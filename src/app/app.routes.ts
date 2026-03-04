@@ -5,6 +5,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { DashboardAdminComponent } from './pages/dashboard/dashboard-admin/dashboard-admin.component';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { SellerGuard } from './guards/seller.guard';
+import { EditProductComponent } from './pages/seller/products/edit-product/edit-product.component';
+import { AdminProductsListComponent } from './pages/admin/admin-products-list/admin-products-list.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -44,6 +47,11 @@ export const routes: Routes = [
   },
 
   {
+  path: 'admin/products',
+  component: AdminProductsListComponent
+  },
+
+  {
   path: 'dashboard-customer',
   loadComponent: () =>
     import('./pages/customer/dashboard-customer/dashboard-customer.component')
@@ -75,5 +83,24 @@ export const routes: Routes = [
     path: 'seller/products/create',
     component: CreateProductComponent,
     canActivate: [SellerGuard]
-  }
+  },
+
+  {
+  path: 'seller/products',
+  loadComponent: () =>
+    import('./pages/seller/products/seller-products/seller-products.component')
+      .then(m => m.SellerProductsComponent),
+  canActivate: [SellerGuard]
+  },
+
+  {
+  path: 'seller/products/edit/:id',
+  component: EditProductComponent
+  },
+
+  {
+  path: 'admin/products/edit/:id',
+  component: EditProductComponent
+  },
+
 ];

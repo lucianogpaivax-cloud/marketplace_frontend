@@ -1,0 +1,84 @@
+/* Fundo padrão */
+.list-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ede7f6, #d1c4e9);
+  padding: 60px 20px;
+}
+
+/* Container central */
+.list-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Título */
+.page-title {
+  color: #673ab7;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* Card */
+.table-card {
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(103, 58, 183, 0.15);
+}
+
+/* Scroll horizontal */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+/* Tabela */
+.custom-table {
+  width: 100%;
+}
+
+/* Cabeçalho */
+.custom-table th {
+  font-weight: 600;
+  color: #673ab7;
+  background: #f3e5f5;
+}
+
+/* Células */
+.custom-table td {
+  padding: 16px;
+}
+
+.custom-table tr:hover {
+  background-color: #f9f6ff;
+  transition: 0.2s ease;
+}
+
+/* Badge status */
+.status-badge {
+  background: #ede7f6;
+  color: #673ab7;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* Ações */
+.actions-cell {
+  display: flex;
+  gap: 10px;
+}
+
+/* Loader */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Erro */
+.error {
+  color: #d32f2f;
+  font-weight: 500;
+  padding: 20px;
+}

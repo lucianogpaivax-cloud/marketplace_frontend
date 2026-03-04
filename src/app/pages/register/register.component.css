@@ -1,0 +1,88 @@
+/* Fundo */
+.register-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ede7f6, #d1c4e9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 40px 0;
+}
+
+/* Card */
+.register-card {
+  width: 420px;
+  padding: 40px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 25px rgba(103, 58, 183, 0.2);
+}
+
+/* Título */
+.title {
+  color: #673ab7;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+/* Inputs */
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Força outline roxo */
+::ng-deep .mdc-notched-outline__leading,
+::ng-deep .mdc-notched-outline__notch,
+::ng-deep .mdc-notched-outline__trailing {
+  border-color: #673ab7 !important;
+}
+
+::ng-deep .mdc-floating-label--float-above {
+  color: #673ab7 !important;
+}
+
+/* Botão */
+.register-button {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Mensagens */
+.validation {
+  font-size: 13px;
+  color: #d32f2f;
+  margin-bottom: 15px;
+}
+
+.success {
+  margin-top: 15px;
+  color: #2e7d32;
+}
+
+.error {
+  margin-top: 15px;
+  color: #d32f2f;
+  white-space: pre-line;
+}
+
+/* Usuário canto superior direito */
+.user-info {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #673ab7;
+  font-weight: 500;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #673ab7;
+}

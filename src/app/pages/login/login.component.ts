@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
   standalone: true,
   imports: [
     CommonModule,

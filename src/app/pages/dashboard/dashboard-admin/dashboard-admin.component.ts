@@ -16,6 +16,7 @@ import { SellerListComponent } from "../../admin/seller-list/seller-list.compone
 @Component({
   selector: 'app-dashboard-admin',
   templateUrl: './dashboard-admin.component.html',
+  styleUrls: ['./dashboard-admin.component.css'],
   standalone: true,
   imports: [
     CommonModule,

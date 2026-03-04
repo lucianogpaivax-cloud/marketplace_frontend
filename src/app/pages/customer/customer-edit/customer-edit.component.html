@@ -1,32 +1,48 @@
-<mat-card>
-  <h2>Editar customer</h2>
+<div class="edit-wrapper">
 
-  <mat-form-field appearance="outline" class="w-100">
-    <mat-label>Nome</mat-label>
-    <input matInput [(ngModel)]="customer.name">
-  </mat-form-field>
+  <mat-card class="edit-card">
 
-  <mat-form-field appearance="outline" class="w-100">
-    <mat-label>Email</mat-label>
-    <input matInput [(ngModel)]="customer.email">
-  </mat-form-field>
+    <h2 class="page-title">Editar Customer</h2>
 
-  <mat-form-field appearance="outline" class="w-100">
-    <mat-label>Status</mat-label>
-    <input matInput [(ngModel)]="customer.status">
-  </mat-form-field>
+    <form class="form-grid">
 
-  <mat-form-field appearance="outline" class="w-100">
-    <mat-label>CPF</mat-label>
-    <input matInput [(ngModel)]="customer.cpf">
-  </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput [(ngModel)]="customer.name" name="name">
+      </mat-form-field>
 
-  <mat-form-field appearance="outline" class="w-100">
-    <mat-label>Endereço</mat-label>
-    <input matInput [(ngModel)]="customer.endereco">
-  </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="customer.email" name="email">
+      </mat-form-field>
 
-  <button mat-raised-button color="primary" (click)="save()">
-    Salvar
-  </button>
-</mat-card>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Status</mat-label>
+        <input matInput [(ngModel)]="customer.status" name="status">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>CPF</mat-label>
+        <input matInput [(ngModel)]="customer.cpf" name="cpf">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Endereço</mat-label>
+        <input matInput [(ngModel)]="customer.endereco" name="endereco">
+      </mat-form-field>
+
+      <div class="button-container">
+        <button
+          mat-flat-button
+          color="primary"
+          type="button"
+          (click)="save()">
+          Salvar alterações
+        </button>
+      </div>
+
+    </form>
+
+  </mat-card>
+
+</div>
