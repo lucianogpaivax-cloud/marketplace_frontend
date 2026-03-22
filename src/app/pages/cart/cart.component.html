@@ -1,0 +1,70 @@
+<div class="product-wrapper">
+
+  <div class="product-container">
+
+    <!-- LISTA -->
+    <div class="image-section">
+
+      <div *ngFor="let item of items" class="image-card">
+
+        <img
+          [src]="item.product.imagem || 'assets/no-image.png'"
+          class="main-image"
+        />
+
+        <h3>{{ item.product.nome }}</h3>
+
+        <p class="price">
+          R$ {{ item.product.preco }}
+        </p>
+
+        <div class="quantity">
+          <button mat-button (click)="decrease(item)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button mat-button (click)="increase(item)">+</button>
+        </div>
+
+        <p>
+          Subtotal:
+          <strong>
+            R$ {{ item.quantity * item.product.preco }}
+          </strong>
+        </p>
+
+        <button mat-button color="warn" (click)="removeItem(item.id_cart_items)">
+          Remover
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- RESUMO -->
+    <div class="info-section">
+
+      <h2 class="product-title">Resumo do Pedido</h2>
+
+      <p>Total de itens: {{ items.length }}</p>
+
+      <p class="price">
+        Total: R$ {{ total }}
+      </p>
+
+      <div class="actions">
+        <button mat-flat-button color="primary">
+          Finalizar compra
+        </button>
+<p></p>
+        <button
+        mat-flat-button
+        color="warn"
+        (click)="clearCart()">
+        Limpar carrinho
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

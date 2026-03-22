@@ -1,0 +1,108 @@
+<div class="product-wrapper" *ngIf="product">
+
+  <div class="product-container">
+
+    <!-- IMAGENS -->
+    <div class="image-section">
+
+      <mat-card class="image-card">
+
+        <img
+          class="main-image"
+          [src]="product.imagem || 'assets/no-image.png'"
+          alt="{{ product.nome }}">
+
+      </mat-card>
+
+      <!-- miniaturas -->
+      <div class="thumbnail-container">
+
+        <div class="thumbnail" *ngFor="let img of [1,2,3]">
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- INFORMAÇÕES -->
+    <div class="info-section">
+
+      <h1 class="product-title">
+        {{ product.nome }}
+      </h1>
+
+      <p class="category">
+        Categoria: {{ product.id_category }}
+      </p>
+
+      <p class="price">
+        R$ {{ product.preco }}
+      </p>
+
+      <p class="description">
+        {{ product.descricao }}
+      </p>
+
+      <!-- quantidade -->
+      <div class="quantity">
+        Quantidade
+        <button mat-icon-button>-</button>
+        <span>1</span>
+        <button mat-icon-button>+</button>
+      </div>
+
+      <!-- botões -->
+      <div class="actions">
+
+        <button
+        mat-flat-button
+        color="accent"
+        (click)="addToCart(product.id_product)">
+        Adicionar ao carrinho
+        </button>
+
+        <button mat-flat-button color="primary">
+          Comprar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- PRODUTOS RELACIONADOS -->
+
+  <div class="related-section">
+
+    <div class="related-header">
+      <h2>Pra acompanhar:</h2>
+      <span class="see-more">Ver mais +</span>
+    </div>
+
+    <div class="related-grid">
+
+  <mat-card
+    class="related-card"
+    *ngFor="let item of relatedProducts"
+    [routerLink]="['/products', item.id_product]">
+
+    <img
+      class="related-image"
+      [src]="item.imagem || 'assets/no-image.png'">
+
+    <p>{{ item.nome }}</p>
+
+    <span class="related-price">
+      R$ {{ item.preco }}
+    </span>
+
+  </mat-card>
+
+</div>
+
+  </div>
+
+</div>

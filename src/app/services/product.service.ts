@@ -19,8 +19,18 @@ export class ProductService {
   }
 
   // Listar produtos públicos
-  getProducts(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/products`);
+  getProducts(params?: any): Observable<any> {
+  return this.http.get(`${this.apiUrl}/products`, { params });
+  }
+
+  // Lista os produtos publicos
+  getPublicProduct(id: number | string) {
+  return this.http.get(`${this.apiUrl}/products/${id}`);
+  }
+
+  // Mostra os produtos relacionados ao produto
+  getRelatedProducts(id: number) {
+  return this.http.get<any[]>(`${this.apiUrl}/products/${id}/related`);
   }
 
   // Buscar produto por ID (seller)

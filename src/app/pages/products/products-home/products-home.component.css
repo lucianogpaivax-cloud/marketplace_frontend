@@ -1,0 +1,129 @@
+/* Fundo da página */
+
+.products-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ede7f6, #d1c4e9);
+  padding: 50px 20px;
+}
+
+/* Container */
+
+.products-container {
+  max-width: 1300px;
+  margin: auto;
+}
+
+/* Título */
+
+.page-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #673ab7;
+  margin-bottom: 40px;
+}
+
+/* GRID de produtos */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+/* Card */
+
+.product-card {
+  border-radius: 14px;
+  overflow: hidden;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+/* Hover estilo marketplace */
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Imagem */
+
+.image-container {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+}
+
+.image-container img {
+  max-height: 180px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Nome */
+
+.product-title {
+  font-size: 16px;
+  font-weight: 500;
+  min-height: 45px;
+}
+
+/* Preço */
+
+.product-price {
+  font-size: 20px;
+  font-weight: 600;
+  color: #4caf50;
+  margin-top: 8px;
+}
+
+/* Botão */
+
+mat-card-actions {
+  padding: 16px;
+}
+
+/* 🔎 Busca */
+
+.search-container {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.search-field {
+  width: 100%;
+  max-width: 500px;
+}
+
+.content {
+  display: flex;
+  gap: 30px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  height: fit-content;
+}
+
+/* Busca central */
+.search-center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.search-center mat-form-field {
+  width: 400px;
+}
+
+/* Grid ocupa resto */
+.products-grid {
+  flex: 1;
+}

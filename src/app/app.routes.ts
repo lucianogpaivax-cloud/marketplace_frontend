@@ -7,10 +7,13 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { SellerGuard } from './guards/seller.guard';
 import { EditProductComponent } from './pages/seller/products/edit-product/edit-product.component';
 import { AdminProductsListComponent } from './pages/admin/admin-products-list/admin-products-list.component';
+import { ProductsHomeComponent } from './pages/products/products-home/products-home.component';
+import { ProductDetailsComponent } from './pages/products/product-details/product-details.component'
+import { CartComponent } from './pages/cart/cart.component';
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', component: ProductsHomeComponent },
 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -103,4 +106,22 @@ export const routes: Routes = [
   component: EditProductComponent
   },
 
+  {
+  path: 'products',
+  component: ProductsHomeComponent
+  },
+
+  {
+  path: 'products/:id',
+  loadComponent: () =>
+    import('./pages/products/product-details/product-details.component')
+      .then(m => m.ProductDetailsComponent)
+  },
+
+  {
+  path: 'cart',
+  loadComponent: () =>
+    import('./pages/cart/cart.component')
+      .then(m => m.CartComponent)
+}
 ];

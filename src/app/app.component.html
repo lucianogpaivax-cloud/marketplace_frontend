@@ -1,12 +1,53 @@
 <mat-toolbar color="primary">
-  <span>Marketplace</span>
+
+  <!-- Logo -->
+  <span class="logo" routerLink="/products">
+    Marketplace
+  </span>
+
   <span class="spacer"></span>
-  <button mat-button routerLink="/login">Login</button>
-  <button mat-button routerLink="/register">Cadastro</button>
-  <button mat-button routerLink="/dashboard">Dashboard</button>
+
+  <!-- NÃO LOGADO -->
+  <ng-container *ngIf="!isLoggedIn">
+    <button mat-button routerLink="/login">Login</button>
+    <button mat-button routerLink="/register">Cadastro</button>
+  </ng-container>
+
+  <!-- LOGADO -->
+  <ng-container *ngIf="isLoggedIn">
+
+    <!-- Carrinho -->
+    <button
+      mat-icon-button
+      [routerLink]="['/cart']"
+      class="cart-button">
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+
+    <!-- Menu usuário -->
+    <button mat-icon-button [matMenuTriggerFor]="userMenu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+
+    <mat-menu #userMenu="matMenu">
+
+      <button mat-menu-item (click)="goToDashboard()">
+        <mat-icon>dashboard</mat-icon>
+        Dashboard
+      </button>
+
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Sair
+      </button>
+
+    </mat-menu>
+
+  </ng-container>
+
 </mat-toolbar>
 
-<div class="app-content" style="padding: 20px;">
+<div class="app-content">
   <router-outlet></router-outlet>
 </div>
 
