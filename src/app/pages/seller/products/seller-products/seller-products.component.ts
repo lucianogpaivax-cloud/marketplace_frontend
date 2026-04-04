@@ -33,8 +33,9 @@ export class SellerProductsComponent implements OnInit {
     'nome',
     'categoria',
     'preco',
+    'quantidade',
     'status',
-    'acoes'
+    'acoes',
   ];
 
   products: any[] = [];

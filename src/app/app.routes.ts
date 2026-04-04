@@ -10,6 +10,9 @@ import { AdminProductsListComponent } from './pages/admin/admin-products-list/ad
 import { ProductsHomeComponent } from './pages/products/products-home/products-home.component';
 import { ProductDetailsComponent } from './pages/products/product-details/product-details.component'
 import { CartComponent } from './pages/cart/cart.component';
+import { OrdersComponent } from './pages/orders/orders.component';
+import { OrderDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component'
 
 
 export const routes: Routes = [
@@ -123,5 +126,25 @@ export const routes: Routes = [
   loadComponent: () =>
     import('./pages/cart/cart.component')
       .then(m => m.CartComponent)
+  },
+
+ //  pedidos do usuário
+  {
+    path: 'orders',
+    component: OrdersComponent
+  },
+
+  // detalhe do pedido
+  {
+    path: 'orders/:id',
+    component: OrderDetailComponent
+  },
+
+  {
+  path: 'checkout',
+  loadComponent: () =>
+    import('./pages/checkout/checkout.component')
+      .then(m => m.CheckoutComponent)
 }
+
 ];

@@ -33,7 +33,8 @@ export class EditProductComponent implements OnInit {
     descricao: '',
     preco: '',
     status: '',
-    id_category: ''
+    id_category: '',
+    quantidade: 0
   };
 
   productId!: number;

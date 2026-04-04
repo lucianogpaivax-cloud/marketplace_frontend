@@ -46,6 +46,30 @@
           <input matInput [(ngModel)]="product.imagem" name="imagem">
         </mat-form-field>
 
+        <!-- Linha Preço + Quantidade -->
+        <div class="row">
+
+        <!-- Preço -->
+        <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Preço</mat-label>
+        <input matInput type="number"
+           [(ngModel)]="product.preco"
+           name="preco"
+           required>
+        </mat-form-field>
+
+        <!-- Quantidade -->
+        <mat-form-field appearance="outline" class="full-width">
+       <mat-label>Quantidade</mat-label>
+       <input matInput type="number"
+           [(ngModel)]="product.quantidade"
+           name="quantidade"
+           required
+           min="0">
+       </mat-form-field>
+
+</div>
+
         <!-- Descrição -->
         <mat-form-field appearance="outline" class="full-width description-field">
           <mat-label>Descrição</mat-label>

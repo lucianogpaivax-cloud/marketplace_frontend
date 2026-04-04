@@ -4,7 +4,7 @@
 
   <div class="cards-grid">
 
-    <!-- Card: Meus Dados -->
+    <!-- Meus Dados -->
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-icon mat-card-avatar>person</mat-icon>
@@ -19,6 +19,25 @@
           routerLink="/customer/edit"
         >
           Editar meus dados
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- 🛒 NOVO CARD: MEUS PEDIDOS -->
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-icon mat-card-avatar>shopping_bag</mat-icon>
+        <mat-card-title>Meus Pedidos</mat-card-title>
+        <mat-card-subtitle>Acompanhe suas compras</mat-card-subtitle>
+      </mat-card-header>
+      
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          class="primary-btn"
+          routerLink="/orders"
+        >
+          Ver pedidos
         </button>
       </mat-card-actions>
     </mat-card>

@@ -1,0 +1,71 @@
+<div class="page-wrapper">
+  <div class="page-container">
+
+    <h2 class="title">Meus Pedidos</h2>
+
+    <!-- LOADING -->
+    <div *ngIf="loading" class="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <!-- SEM PEDIDOS -->
+    <div *ngIf="!loading && orders.length === 0" class="empty">
+      <p>Você ainda não fez nenhum pedido.</p>
+    </div>
+
+    <!-- LISTA -->
+    <mat-accordion *ngIf="!loading && orders.length > 0">
+
+      <mat-expansion-panel *ngFor="let order of orders">
+
+        <mat-expansion-panel-header class="panel-header">
+          <mat-panel-title>
+            Pedido #{{ order.id_order }}
+          </mat-panel-title>
+    
+          <mat-panel-description>
+            {{ order.valor_total | currency:'BRL' }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      
+        <!-- STATUS -->
+        <div style="margin-bottom: 10px;">
+          <mat-chip class="status-chip" [color]="getStatusColor(order.status)" selected>
+            {{ order.status }}
+          </mat-chip>
+        </div>
+
+        <!-- ITENS -->
+        <div *ngFor="let item of order.items">
+
+          <mat-card class="custom-card item-card">
+
+            <p><strong>{{ item.product?.nome }}</strong></p>
+
+            <p>Quantidade: {{ item.quantidade }}</p>
+
+            <p>Preço: {{ item.preco_unitario | currency:'BRL' }}</p>
+
+            <p>Subtotal: {{ item.subtotal | currency:'BRL' }}</p>
+
+          </mat-card>
+
+        </div>
+
+        <!-- AÇÕES -->
+        <div class="actions">
+          <button 
+            mat-stroked-button 
+            color="primary"
+            (click)="goToDetail(order.id_order)"
+          >
+            Ver detalhes
+          </button>
+        </div>
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+
+  </div>
+</div>

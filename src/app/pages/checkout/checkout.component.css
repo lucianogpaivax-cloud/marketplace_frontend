@@ -1,5 +1,5 @@
-/* 🌌 Fundo */
-.product-wrapper {
+/* 🌌 Fundo da tela */
+.checkout-wrapper {
   min-height: 100vh;
   background: linear-gradient(135deg, #ede7f6, #d1c4e9);
   display: flex;
@@ -8,68 +8,89 @@
   padding: 40px 20px;
 }
 
-/* Container */
-.product-container {
+/* 🧾 Container principal */
+.checkout-container {
   width: 100%;
-  max-width: 600px;
+  max-width: 1000px;
 }
 
-/* Card */
-.product-card {
-  padding: 30px;
+/* 📦 Layout em grid */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+/* 📄 Cards */
+.checkout-card {
+  padding: 20px;
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(103, 58, 183, 0.15);
 }
 
-/* Título */
+/* 🏷️ Títulos */
 .title {
   color: #673ab7;
-  font-weight: 600;
   margin-bottom: 20px;
-  text-align: center;
+  font-weight: 600;
 }
 
 /* Inputs */
 .full-width {
   width: 100%;
-  margin-bottom: 15px;
 }
 
-/* Linha (ex: preço + quantidade) */
+/* Linha (cidade + estado) */
 .row {
   display: flex;
   gap: 10px;
+  margin-bottom: 10px;
 }
 
-/* Botão principal */
-.save-button {
+/* 🔘 Botão principal */
+.checkout-button {
   width: 100%;
   background-color: #673ab7 !important;
   color: white !important;
   border-radius: 6px;
   font-weight: 500;
-  margin-top: 10px;
   transition: 0.3s;
 }
 
-.save-button:hover {
+.checkout-button:hover {
   background-color: #5e35b1 !important;
 }
 
-/* Botão secundário */
-.cancel-button {
-  width: 100%;
+/* 💰 Total */
+.total {
   margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #673ab7;
 }
 
-/* Mensagem erro */
+/* 📦 Itens do carrinho */
+.item {
+  margin-bottom: 10px;
+}
+
+.item-name {
+  font-weight: 500;
+}
+
+.item-price {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ❌ Erro */
 .error {
   margin-top: 10px;
   color: #d32f2f;
   font-size: 14px;
 }
 
-/* Ajuste Angular Material */
+/* 🎯 Material custom (igual login) */
 ::ng-deep .mat-mdc-form-field-outline {
   color: #673ab7 !important;
   border-color: #673ab7 !important;

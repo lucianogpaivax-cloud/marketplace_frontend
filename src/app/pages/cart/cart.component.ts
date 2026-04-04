@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
-
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule],
+  imports: [CommonModule, 
+    MatCardModule, 
+    MatButtonModule, 
+    RouterModule],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
@@ -18,7 +23,7 @@ export class CartComponent implements OnInit {
   items: any[] = [];
   total = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService,private router: Router) {}
 
   ngOnInit() {
     this.loadCart();
@@ -79,4 +84,9 @@ export class CartComponent implements OnInit {
     }
   });
 }
+
+  goToCheckout() {
+  this.router.navigate(['/checkout']);
+}
+
 }

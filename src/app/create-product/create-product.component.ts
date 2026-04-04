@@ -32,12 +32,13 @@ import { MatIconModule } from '@angular/material/icon';
 export class CreateProductComponent {
 
   product = {
-    id_category: null as number | null,
+  id_category: null as number | null,
   nome: '',
   descricao: '',
   preco: null as number | null,
   imagem: '',
-  status: 'ativo'
+  status: 'ativo',
+  quantidade: 0
   };
 
   constructor(

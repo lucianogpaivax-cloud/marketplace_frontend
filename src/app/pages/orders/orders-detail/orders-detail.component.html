@@ -1,0 +1,76 @@
+<div class="page-wrapper">
+  <div class="page-container">
+
+    <!-- BOTÃO -->
+    <button mat-button (click)="goBack()">
+      ← Voltar
+    </button>
+
+    <!-- LOADING -->
+    <div *ngIf="loading" class="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div *ngIf="!loading && order">
+
+      <!-- CARD PRINCIPAL -->
+      <mat-card class="detail-card">
+
+        <h2 class="title">Pedido {{ order.id_order }}</h2>
+
+        <mat-chip class="status-chip" [color]="getStatusColor(order.status)" selected>
+          {{ order.status }}
+        </mat-chip>
+
+        <mat-divider style="margin: 15px 0;"></mat-divider>
+
+        <p><strong>Data:</strong> {{ order.created_at | date:'dd/MM/yyyy HH:mm' }}</p>
+
+        <p><strong>Total:</strong> {{ order.valor_total | currency:'BRL' }}</p>
+
+        <p><strong>Total de itens:</strong> {{ getTotalItems() }}</p>
+
+      </mat-card>
+
+      <!-- ITENS -->
+      <h2 class="section-title">Itens do Pedido</h2>
+
+      <div *ngFor="let item of order.items">
+
+        <mat-card class="custom-card">
+
+          <h4>{{ item.product?.nome }}</h4>
+
+          <mat-divider style="margin: 10px 0;"></mat-divider>
+
+          <p><strong>Quantidade:</strong> {{ item.quantidade }}</p>
+
+          <p><strong>Preço unitário:</strong> {{ item.preco_unitario | currency:'BRL' }}</p>
+
+          <p><strong>Subtotal:</strong> {{ item.subtotal | currency:'BRL' }}</p>
+
+          <p><strong>Vendedor ID:</strong> {{ item.id_seller }}</p>
+
+        </mat-card>
+<p></p>
+      </div>
+
+      <!-- RESUMO -->
+      <mat-card class="detail-card">
+
+        <mat-divider style="margin: 10px 0;"></mat-divider>
+
+        <p><strong>Total do pedido:</strong> {{ order.valor_total | currency:'BRL' }}</p>
+
+      </mat-card>
+
+    </div>
+
+    <!-- ERRO -->
+    <div *ngIf="!loading && !order" class="empty">
+      <p>Pedido não encontrado.</p>
+    </div>
+
+  </div>
+</div>

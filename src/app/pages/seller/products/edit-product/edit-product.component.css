@@ -1,19 +1,19 @@
-/* Fundo padrão do sistema */
+/* 🌌 Fundo */
 .edit-wrapper {
   min-height: 100vh;
   background: linear-gradient(135deg, #ede7f6, #d1c4e9);
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 60px 20px;
+  padding: 40px 20px;
 }
 
-/* Card central */
+/* Card */
 .edit-card {
-  width: 900px;
-  padding: 40px;
-  border-radius: 14px;
-  background: #ffffff;
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 12px;
   box-shadow: 0 8px 25px rgba(103, 58, 183, 0.15);
 }
 
@@ -21,47 +21,34 @@
 .title {
   color: #673ab7;
   font-weight: 600;
-  margin-bottom: 30px;
-}
-
-/* Grid responsivo */
-.form-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 /* Inputs */
 .full-width {
   width: 100%;
+  margin-bottom: 15px;
 }
 
-/* Campo descrição ocupa linha inteira */
-.description-field {
-  grid-column: 1 / -1;
+/* Linha (preço + quantidade) */
+.row {
+  display: flex;
+  gap: 10px;
 }
 
-/* Outline roxo */
-::ng-deep .mdc-notched-outline__leading,
-::ng-deep .mdc-notched-outline__notch,
-::ng-deep .mdc-notched-outline__trailing {
+/* Botões */
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Material override */
+::ng-deep .mat-mdc-form-field-outline {
   border-color: #673ab7 !important;
 }
 
 ::ng-deep .mdc-floating-label--float-above {
   color: #673ab7 !important;
-}
-
-/* Botões alinhados à direita */
-.button-container {
-  grid-column: 1 / 2;
-  display: flex;
-  justify-content: flex-end;
-  gap: 15px;
-  margin-top: 15px;
-}
-
-button {
-  border-radius: 8px;
-  font-weight: 500;
 }

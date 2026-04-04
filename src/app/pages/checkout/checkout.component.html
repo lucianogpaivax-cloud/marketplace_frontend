@@ -1,0 +1,88 @@
+<div class="checkout-wrapper">
+
+  <div class="checkout-container">
+
+    <h2 class="title">Checkout</h2>
+
+    <div class="checkout-grid">
+
+      <!-- ESQUERDA -->
+      <div>
+
+        <!-- PAGAMENTO -->
+        <mat-card class="checkout-card">
+          <h3 class="title">Forma de pagamento</h3>
+
+          <mat-radio-group [(ngModel)]="paymentMethod">
+            <mat-radio-button value="pix">PIX</mat-radio-button><br>
+            <mat-radio-button value="credit_card">Cartão de Crédito</mat-radio-button>
+          </mat-radio-group>
+        </mat-card>
+
+        <!-- ENDEREÇO -->
+        <mat-card class="checkout-card" style="margin-top: 20px;">
+          <h3 class="title">Endereço de entrega</h3>
+
+          <div class="row">
+            <mat-form-field appearance="outline" class="full-width">
+              <mat-label>Cidade</mat-label>
+              <input matInput [(ngModel)]="city">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="width: 120px;">
+              <mat-label>Estado</mat-label>
+              <input matInput [(ngModel)]="state">
+            </mat-form-field>
+          </div>
+
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Endereço completo</mat-label>
+            <input matInput [(ngModel)]="address">
+          </mat-form-field>
+        </mat-card>
+
+      </div>
+
+      <!-- DIREITA -->
+      <div>
+
+        <mat-card class="checkout-card">
+
+          <h3 class="title">Resumo do pedido</h3>
+
+          <div *ngFor="let item of cartItems" class="item">
+            <div class="item-name">{{ item.product.nome }}</div>
+            <div class="item-price">
+              {{ item.quantity }} x {{ item.product.preco | currency:'BRL' }}
+            </div>
+          </div>
+
+          <mat-divider></mat-divider>
+
+          <div class="total">
+            Total: {{ total | currency:'BRL' }}
+          </div>
+          <br>
+
+          <div *ngIf="error" class="error">
+            {{ error }}
+          </div>
+
+          <button
+            mat-raised-button
+            class="checkout-button"
+            (click)="confirmCheckout()"
+            [disabled]="loading"
+          >
+            {{ loading ? 'Processando...' : 'Finalizar pedido' }}
+          </button>
+
+        </mat-card>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

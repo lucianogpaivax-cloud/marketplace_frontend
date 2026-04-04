@@ -1,27 +1,43 @@
-<mat-card class="create-product-card">
+<div class="product-wrapper">
 
-  <mat-card-title>
-    Criar Produto
-  </mat-card-title>
+  <div class="product-container">
 
-  <mat-card-content>
-    <form (ngSubmit)="submit()" #form="ngForm">
+    <mat-card class="product-card">
 
-      <!-- Nome -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Nome do produto</mat-label>
-        <input
-          matInput
-          name="nome"
-          [(ngModel)]="product.nome"
-          required
-        />
-        <mat-error *ngIf="form.submitted && !product.nome">
-          Nome é obrigatório
-        </mat-error>
-      </mat-form-field>
+      <h2 class="title">Criar Produto</h2>
 
-      <!-- Categoria -->
+      <form #form="ngForm">
+
+        <!-- Nome -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nome</mat-label>
+          <input matInput name="nome" [(ngModel)]="product.nome" required />
+        </mat-form-field>
+
+        <!-- Descrição -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Descrição</mat-label>
+          <textarea matInput name="descricao" [(ngModel)]="product.descricao"></textarea>
+        </mat-form-field>
+
+        <!-- Linha Preço + Quantidade -->
+        <div class="row">
+
+          <!-- Preço -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Preço</mat-label>
+            <input matInput type="number" name="preco" [(ngModel)]="product.preco" required />
+          </mat-form-field>
+
+          <!-- Quantidade -->
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Quantidade</mat-label>
+            <input matInput type="number" name="quantidade" [(ngModel)]="product.quantidade" required />
+          </mat-form-field>
+
+        </div>
+
+        <!-- Categoria -->
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Categoria</mat-label>
         <mat-select
@@ -44,78 +60,25 @@
         </mat-error>
       </mat-form-field>
 
-      <!-- Descrição -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Descrição</mat-label>
-        <textarea
-          matInput
-          rows="4"
-          name="descricao"
-          [(ngModel)]="product.descricao"
-        ></textarea>
-      </mat-form-field>
+        <!-- Imagem -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Imagem (URL)</mat-label>
+          <input matInput name="imagem" [(ngModel)]="product.imagem" />
+        </mat-form-field>
 
-      <!-- Preço -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Preço</mat-label>
-        <input
-          matInput
-          type="number"
-          name="preco"
-          [(ngModel)]="product.preco"
-          required
-          min="0"
-        />
-        <mat-error *ngIf="form.submitted && !product.preco">
-          Preço é obrigatório
-        </mat-error>
-      </mat-form-field>
-
-      <!-- Imagem -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Imagem (URL)</mat-label>
-        <input
-          matInput
-          name="imagem"
-          [(ngModel)]="product.imagem"
-          placeholder="https://..."
-        />
-      </mat-form-field>
-
-      <!-- Status -->
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Status</mat-label>
-        <mat-select
-          name="status"
-          [(ngModel)]="product.status"
-        >
-          <mat-option value="ativo">Ativo</mat-option>
-          <mat-option value="inativo">Inativo</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <!-- Botões -->
-      <div class="actions">
+        <!-- Botão -->
         <button
           mat-raised-button
-          color="primary"
-          type="submit"
+          class="save-button"
+          (click)="submit()"
         >
-          <mat-icon>save</mat-icon>
-          Criar Produto
+          Salvar Produto
         </button>
 
-        <button
-          mat-button
-          type="button"
-          color="warn"
-          (click)="cancel()"
-        >
-          Cancelar
-        </button>
-      </div>
+      </form>
 
-    </form>
-  </mat-card-content>
+    </mat-card>
 
-</mat-card>
+  </div>
+
+</div>

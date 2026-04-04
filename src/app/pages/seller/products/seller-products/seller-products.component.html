@@ -38,6 +38,14 @@
     </td>
   </ng-container>
 
+  <!-- Quantidade -->
+  <ng-container matColumnDef="quantidade">
+  <th mat-header-cell *matHeaderCellDef> Estoque </th>
+  <td mat-cell *matCellDef="let product">
+    {{ product.quantidade }}
+  </td>
+</ng-container>
+
   <!-- Ações -->
   <ng-container matColumnDef="acoes">
     <th mat-header-cell *matHeaderCellDef> Ações </th>
